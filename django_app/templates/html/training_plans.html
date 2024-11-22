@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Athlete Training Program</title>
+    <link rel="stylesheet" href="static/css/training_plans.css">
+    </head>
+<body>
+    <div class="container">
+        <h1>Select Sport Category</h1>
+        <select id="sport-category">
+            <option value="" disabled selected>Select a sport</option>
+            <option value="sprints">Sprints</option>
+            <option value="long-jump">Long Jump</option>
+            <option value="relay-races">Relay Races</option>
+            <option value="javelin">Javelin</option>
+            <option value="hammer-throw">Hammer Throw</option>
+            <option value="discus">Discus</option>
+            <option value="marathon">Marathon</option>
+            <option value="shot-put">Shot Put</option>
+            <option value="high-jump">High Jump</option>
+            <option value="swimming">Swimming</option>
+            <option value="archery">Archery</option>
+            <option value="cycling">Cycling</option>
+        </select>
+        <br>
+        <button onclick="showTraining()">Show Training Plan</button>
+
+        <div id="training-output" class="training-output" style="display:none;"></div>
+    </div>
+        <script src="{% static 'javascript/training_plans.js' %}"></script>
+</body>
+
+</html>

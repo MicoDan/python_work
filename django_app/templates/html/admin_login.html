@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="static/css/adminlogin.css">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Admin</h2>
+        <form method="post">
+            {% csrf_token %}
+            <input type="text" placeholder="Username" required name="username">
+            <input type="password" placeholder="Password" required name="password">
+            <div class="remember-me-container">
+                <input type="checkbox" id="remember-me" class="remember-me">
+                <label for="remember-me">Remember Me</label>
+            </div>
+            <button type="submit" class="btn">Login</button>
+            <a href="#" class="forgot-password">Forgot Password?</a>
+        </form>
+    </div>
+</body>
+</html>

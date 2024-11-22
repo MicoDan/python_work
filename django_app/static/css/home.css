@@ -1,0 +1,445 @@
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    scroll-behavior: smooth;
+}
+
+/* Header Styling */
+header {
+    background-color: white;
+    color: black;
+    padding: 20px 0;
+    border-bottom: 1px solid #ddd;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: auto;
+}
+
+.logo {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #0a74da;
+}
+
+/* Hero Section */
+.hero-section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding-top: 80px;
+}
+
+.hero-image-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.9;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.overlay h1 {
+    color: #fff;
+    font-size: 3em;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.overlay .cta-button {
+    padding: 10px 20px;
+    background-color: #0a74da;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.overlay .cta-button:hover {
+    background-color: #0661b3;
+}
+
+/* Section Styling */
+section {
+    padding: 60px 20px;
+    text-align: center;
+    width: 90%;
+    margin: auto;
+}
+
+section h2 {
+    margin-bottom: 40px;
+    font-size: 2.5em;
+    color: #0a74da;
+}
+
+.benefit-cards, .feature-cards, .step-by-step {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.benefit-card, .feature-card, .step {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.benefit-card:hover, .feature-card:hover, .step:hover {
+    transform: translateY(-10px);
+}
+
+.benefit-card img, .feature-card img {
+    width: 80px;
+    margin-bottom: 20px;
+}
+
+.benefit-card h3, .feature-card h3, .step h3 {
+    margin-bottom: 10px;
+    color: #0a74da;
+}
+
+/* User Testimonials Section */
+#testimonials {
+    padding: 10px 30px;
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+}
+.replace {
+    padding-bottom: 50px;
+    color: #333;
+    font-size: 1.5rem;
+}
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 200px;
+    width: 100%;
+}
+
+.space {
+    flex: -0.1; /* 10% space on both sides */
+}
+
+.shadow-effect {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    height: 270px;
+    width: 250px;
+    padding-bottom: 45px;
+    object-fit: cover; /* Ensure the image covers the space */
+}
+
+.testimonial {
+    flex: 1 1 50%; /* 50% content area */
+    padding: 0 20px; /* Padding between image and content */
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+.testimonial h4 {
+
+    text-align: end;
+}
+.testimonial p {
+
+    text-align: justify;
+}
+/* Contact Us Section */
+.contact-container {
+    max-width: 600px;
+    margin: auto;
+    text-align: left;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form .input-group {
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.contact-form input, .contact-form textarea {
+    padding: 10px;
+    font-size: 1em;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.contact-form button {
+    background-color: #0a74da;
+    color: #fff;
+    padding: 10px 15px;
+    margin-left: 200px;
+    border: none;
+    width: 200px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.contact-form button:hover {
+    background-color: #0661b3;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 40px 20px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.footer-section {
+    max-width: 200px;
+}
+
+.footer-section h4 {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    color: #0a74da;
+}
+.footer-section p{
+    text-align: justify;
+}
+.footer-section p, .footer-section ul {
+    font-size: 0.9em;
+    line-height: 1.6;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li a {
+    text-decoration: none;
+    color: #fff;
+    transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+    color: #0a74da;
+}
+
+.social-icons {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.social-icons a {
+    color: #fff;
+    font-size: 1.5em;
+    margin: 0 10px;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: #0a74da;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9em;
+}
+.contacts p {
+    margin: -1px;
+}
+
+.contacts h4 {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    color: #0a74da;
+}
+
+
+
+.login-container {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    width: 320px;
+    text-align: center;
+    position: relative;
+    animation: fadeInUp 0.5s ease-in-out;
+}
+
+/* Close Button Styling */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    color: #999;
+    transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+    color: #333;
+}
+
+/* Heading Styling */
+h2 {
+    margin-bottom: 24px;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Input Field Styling */
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #6a11cb;
+    box-shadow: 0px 0px 8px rgba(106, 17, 203, 0.3);
+}
+
+/* Button Styling */
+.btn {
+    width: 100%;
+    padding: 12px;
+    background: #6a11cb;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+    background-color: #2575fc;
+    transform: translateY(-2px);
+}
+
+/* Remember Me and Link Styling */
+.remember-me-container {
+    margin: 20px 0;
+    text-align: left;
+}
+
+.remember-me {
+    margin-right: 8px;
+}
+
+.forgot-password {
+    display: block;
+    margin-top: 16px;
+    color: #2575fc;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.forgot-password:hover {
+    color: #6a11cb;
+}
+
+/* Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.health-assessment-btn {
+    background-color: #007bff; /* Blue background */
+    color: #ffffff; /* White text */
+    border: none;
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 20px; /* Top and bottom padding, left and right padding */
+    font-size: 16px; /* Font size */
+    font-weight: bold; /* Bold text */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s, transform 0.3s; /* Smooth transition for background color and scale */
+}
+
+.health-assessment-btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: scale(1.05); /* Slightly larger on hover */
+}
+
+.health-assessment-btn:focus {
+    outline: none; /* Remove default focus outline */
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5); /* Blue outline for focus state */
+}
+

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Athlete fitness</title>
+    <link rel="stylesheet" href="static/css/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <h4 class="logo">Athlete fitness</h4>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="training">Training Plans</a></li>
+                    <li><a href="#footer">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="tips">Tips and Resources</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-image-container">
+            <img src="{% static 'images/playground.jpg' %}" alt="hi Training" class="hero-image">
+            <div class="overlay">
+                <h1 class="fade-in">Unlock Your Full Potential</h1>
+                <button class="health-assessment-btn" onclick="location.href='health'">Health Assessment</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Benefits Section -->
+    <section id="benefits" class="fade-in">
+        <h2>Why Choose Athlete Fitness?</h2>
+        <div class="benefit-cards">
+            <div class="benefit-card">
+                <img src="{% static 'images/training.png' %}"  alt="Personalized Training Programs">
+                <h3>Personalized Training Programs</h3>
+                <p>Get customized plans that match your fitness goals.</p>
+            </div>
+            <div class="benefit-card">
+                <img src="{% static 'images/monitor.png' %}" alt="Comprehensive Health Reports">
+                <h3>Comprehensive Health Reports</h3>
+                <p>Understand your health with detailed analytics.</p>
+            </div>
+            <div class="benefit-card">
+                <img src="{% static 'images/growth.png' %}" alt="Expert Tips & Resources">
+                <h3>Expert Tips & Resources</h3>
+                <p>Access valuable advice from seasoned professionals.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="fade-in">
+        <h2>Platform Features</h2>
+        <div class="feature-cards">
+            <div class="feature-card">
+                <h3>Cardiovascular Assessment</h3>
+                <p>Monitor and analyze your heart health with ease.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Game Selection Based on Health</h3>
+                <p>Choose sports that best match your health profile.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Custom Training Plans</h3>
+                <p>Follow tailored plans to reach peak performance.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="fade-in">
+        <h2>How It Works</h2>
+        <div class="step-by-step">
+            <div class="step">
+                <h3>Step 1</h3>
+                <p>Enter your health data and receive an initial assessment.</p>
+            </div>
+            <div class="step">
+                <h3>Step 2</h3>
+                <p>Get personalized training plans based on your data.</p>
+            </div>
+            <div class="step">
+                <h3>Step 3</h3>
+                <p>Choose your sports and track your progress.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Us Section -->
+    <section id="contact" class="slide-in">
+        <div class="contact-container">
+            <h2>Contact Us</h2>
+            <form method="POST" class="contact-form">
+                {% csrf_token %}
+                <div class="input-group">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="input-group">
+                    <input type="email" name="email" placeholder="Your Email" required>
+                </div>
+                <div class="input-group">
+                    <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                </div>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer id="footer">
+        <div class="footer-container">
+            <div class="footer-section about-us">
+                <h4>About Us</h4>
+                <p>Our platform helps you achieve peak performance while safeguarding your health, guiding you to the right sports, and optimizing your training for success.</p>
+            </div>
+
+            <div class="footer-section quick-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#benefits">Benefits</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="tips">Tips and Resources</a></li>
+                </ul>
+            </div>
+            <div class="contacts">
+                <h4>Contact</h4>
+                <p>123 Street Name, City, Country</p>
+                <p>Phone: +123 456 7890</p>
+                <p>Email: info@company.com</p>
+            </div>
+        </div>
+        <div class="social-icons">
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Your Company Name. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="{% static 'javascript/home.js' %}"></script>
+
+</body>
+</html>
+

@@ -1,0 +1,49 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Approve List</title>
+    <link rel="stylesheet" href="static/css/approve.css">
+</head>
+<body>
+<center>
+    <h1>Approve Details</h1>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Username</th>
+            <th>Password</th>
+            <th>Status</th>
+            <th>Actions</th> <!-- New column for actions -->
+        </tr>
+        </thead>
+        <tbody>
+        {% for i in approved_users %}
+        <tr>
+            <td>{{ i.id }}</td>
+            <td>{{ i.name }}</td>
+            <td>{{ i.email }}</td>
+            <td>{{ i.username }}</td>
+            <td>{{ i.password }}</td>
+            <td>{{ i.Status }}</td>
+            <td>
+                <a href="{% url 'delete_approved_user' i.id %}">Delete</a> <!-- Link to delete view -->
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="7">No approved entries found</td> <!-- Updated colspan to 7 -->
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</center>
+</body>
+</html>

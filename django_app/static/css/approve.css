@@ -1,0 +1,36 @@
+body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8; /* Light background for better contrast */
+        }
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #2575fc; /* Person Blue */
+            color: white;
+        }
+        td {
+            background-color: #e6f0ff; /* Light Piction Blue */
+        }
+        tr:nth-child(even) td {
+            background-color: #d0e0ff; /* Slightly darker Piction Blue */
+        }
+        tr:hover td {
+            background-color: #b3d1ff; /* Highlight on hover */
+        }
+        a {
+            color: #2575fc; /* Person Blue for links */
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        h1 {
+            color: #2575fc; /* Person Blue for headings */
+        }

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Assessment</title>
+    <link rel="stylesheet" href="static/css/health_assesment.css">
+</head>
+<body>
+    <div class="container">
+        <form method="post">
+            {% csrf_token %}
+            <h1>
+                Personal Information
+                <a href="#" class="edit-link">Edit</a>
+            </h1>
+            <h3>Name</h3>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+            <h3>Height</h3>
+            <label for="height">Measurement of the athlete's height:</label>
+            <input type="text" id="height" name="height" placeholder="e.g., 180 cm" required>
+
+            <h3>Weight</h3>
+            <label for="weight">Measurement of the athlete's weight:</label>
+            <input type="text" id="weight" name="weight" placeholder="e.g., 75 kg" required>
+
+
+            <h3>Nationality</h3>
+            <label for="nationality">The country you come from:</label>
+            <input type="text" id="nationality" name="nationality" placeholder="e.g., India" required>
+
+
+            <div class="containers">
+                <h3>Level of Competition & Training Frequency</h3>
+
+                <!-- Level of Competition Dropdown -->
+                <label for="competition-level">Select your competition level:</label>
+                <select id="competition-level" name="competition_level">
+                    <option value="recreational">Recreational (Casual, non-competitive participation)</option>
+                    <option value="amateur">Amateur (Local clubs, school teams, regional leagues)</option>
+                    <option value="semi-professional">Semi-Professional (High-level amateur competition, minor leagues)
+                    </option>
+                    <option value="professional">Professional (National and international competitions, professional
+                        leagues)</option>
+                    <option value="elite-international">Elite/International (Olympic level, World Championships)
+                    </option>
+                </select>
+
+                <!-- Training Frequency Dropdown -->
+                <label for="training-frequency">Select your training frequency:</label>
+                <select id="training-frequency" name="training_frequency">
+                    <option value="low">Low: 1-3 hours per week (Light training)</option>
+                    <option value="moderate">Moderate: 4-7 hours per week (Regular training)</option>
+                    <option value="high">High: 8-12 hours per week (Intensive training)</option>
+                    <option value="very-high">Very High: 13-20 hours per week (Advanced training)</option>
+                    <option value="elite">Elite: 21+ hours per week (Professional/elite training)</option>
+                </select>
+            </div>
+            <div class="button-group">
+    <button class="submit-button" type="submit">Save</button>
+    <a href="cardio" class="button next-button">Next</a>
+</div>
+
+        </form>
+    </div>
+        <script src="{% static 'javascript/health_data.js' %}"></script>
+</body>
+
+</html>

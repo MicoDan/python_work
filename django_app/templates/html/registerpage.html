@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Page</title>
+    <link rel="stylesheet" href="static/css/registerpage.css">
+    </head>
+<body>
+    <div class="register-container">
+        <h2>Sign-in</h2>
+        <form method="post">
+            {% csrf_token %}
+            <input type="text" placeholder="Full Name" required name="name">
+            <input type="email" placeholder="Email" required name="email">
+            <input type="text" placeholder="Username" required name="username">
+            <input type="password" placeholder="Password" required name="password">
+            <input type="password" placeholder="Confirm Password" required name="confirm_password">
+            <button type="submit" class="btn">Create account</button>
+        </form>
+        <p>Already have an account? <a href="loginpage">Login here</a></p>
+    </div>
+</body>
+</html>

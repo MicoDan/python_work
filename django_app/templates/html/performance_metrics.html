@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Performance Survey: Medical History</title>
+    <link rel="stylesheet" href="static/css/performance_metrics.css">
+</head>
+
+<body>
+    <div class="form-section">
+        <h1>Performance Survey
+        <a href="#" class="edit-link">Edit</a>
+        </h1>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <h3>Existing Medical Conditions</h3>
+                <label for="existing-medical-conditions">Do you have any existing medical conditions?</label>
+                <div class="toggle-group">
+                    <input type="radio" id="existing-medical-yes" name="existing_medical_conditions" value="Yes" onclick="toggleMedicalConditions(true)">
+                    <label for="existing-medical-yes">Yes</label>
+                    <input type="radio" id="existing-medical-no" name="existing_medical_conditions" value="No" onclick="toggleMedicalConditions(false)">
+                    <label for="existing-medical-no">No</label>
+                </div>
+                <div id="medical-conditions-details" class="details" style="display:none;">
+                    <label for="medical-conditions">Please specify your medical conditions:</label>
+                    <input type="text" id="medical-conditions" name="medical_conditions" class="input-field" placeholder="e.g., asthma, diabetes, hypokalemia">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <h3>Training Intensity Levels</h3>
+                <label>How would you describe your training intensity levels?</label>
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="training_intensity" value="High">
+                        High
+                    </label>
+                    <label>
+                        <input type="radio" name="training_intensity" value="Moderate">
+                        Moderate
+                    </label>
+                    <label>
+                        <input type="radio" name="training_intensity" value="Low">
+                        Low
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <h3>Endurance Test Results</h3>
+                <label for="endurance-results">Please enter your latest endurance test results:</label>
+                <input type="text" id="endurance-results" name="endurance_results" class="input-field" placeholder="e.g., time, distance covered">
+            </div>
+
+            <div class="form-group">
+                <h3>Sleep Patterns</h3>
+                <label for="sleep-patterns">How many hours do you sleep on average per night?</label>
+                <select id="sleep-patterns" name="sleep_patterns" class="input-field">
+                    <option value="Less than 4 hours">Less than 4 hours</option>
+                    <option value="4-6 hours">4-6 hours</option>
+                    <option value="6-8 hours">6-8 hours</option>
+                    <option value="More than 8 hours">More than 8 hours</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <h3>Current Training Regimen</h3>
+                <label for="training-regimen">Please describe your current training regimen:</label>
+                <textarea id="training-regimen" name="training_regimen" class="input-field" placeholder="Describe the type, duration, and frequency of your training"></textarea>
+            </div>
+
+            <div class="form-group">
+                <h3>Injury During Competition or Training</h3>
+                <label for="injury-during-training">Have you experienced any injuries during competition or training?</label>
+                <div class="toggle-group">
+                    <input type="radio" id="injury-yes" name="injury_during_training" value="Yes" onclick="toggleInjuryDetails(true)">
+                    <label for="injury-yes">Yes</label>
+                    <input type="radio" id="injury-no" name="injury_during_training" value="No" onclick="toggleInjuryDetails(false)">
+                    <label for="injury-no">No</label>
+                </div>
+                <div id="injury-details" class="details" style="display:none;">
+                    <label for="injury-description">Please describe the type, severity, and treatment of your injury:</label>
+                    <textarea id="injury-description" name="injury_description" class="input-field"></textarea>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button class="submit-button" type="submit">Save</button>
+                <a href="report" class="button next-button">Submit</a>
+            </div>
+        </form>
+    </div>
+
+<script src="{% static 'javascript/metrics.js' %}"></script>
+</body>
+
+</html>
+
