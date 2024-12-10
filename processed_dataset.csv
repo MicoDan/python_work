@@ -1,0 +1,5 @@
+id,name,email,username,password,confirm_password,Status,created_at,year,month,day,is_password_test
+0.0,Mico Dan,micodan369@gmail.com,dan,test,test,True,2024-01-01 00:00:00+00:00,2024,1,1,1
+0.4,gloria,gloria@gmail.com,gloria,gloria,gloria,True,2024-11-22 12:11:25.669000+00:00,2024,11,22,0
+0.6,test,test@gmail.com,test,test,test,True,2024-11-23 07:56:41.956000+00:00,2024,11,23,1
+1.0,Celia,celia@gmail.com,celia,celia,celia,True,2024-11-25 11:51:44.997000+00:00,2024,11,25,0

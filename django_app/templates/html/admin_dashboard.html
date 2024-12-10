@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
-    <link rel="stylesheet" href="static/css/admin_dashboard.css">
+    <link rel="stylesheet" href="{% static 'css/admin_dashboard.css' %}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <div class="container">
@@ -14,10 +15,49 @@
         </header>
         <nav>
             <ul>
-                <li><a href="pending">Pending List</a></li>
-                <li><a href="approved">Approve List</a></li>
+                <li><a href="{% url 'pending_list' %}">Pending List</a></li>
+                <li><a href="{% url 'approve_list' %}">Approve List</a></li>
             </ul>
         </nav>
+        <div class="stats">
+            <h2>Statistics</h2>
+            <p><strong>Approved Athletes:</strong> {{ approved_count }}</p>
+            <p><strong>Pending Athletes:</strong> {{ pending_count }}</p>
+        </div>
+        <div class="chart-container">
+            <h2>Approved vs Pending Athletes Over Time</h2>
+            <canvas id="athleteChart" width="400" height="200"></canvas>
+        </div>
     </div>
+
+    <script>
+        const ctx = document.getElementById('athleteChart').getContext('2d');
+        const athleteChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: {{ dates|safe }},
+                datasets: [{
+                    label: 'Approved Athletes',
+                    data: {{ approved_counts|safe }},
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderWidth: 1
+                }, {
+                    label: 'Pending Athletes',
+                    data: {{ pending_counts|safe }},
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
 </body>
 </html>

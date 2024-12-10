@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect, HttpResponse, get_object_or_404
 from .models import ContactDetails, Register, PersonalInfo, CardioData, Metric
-from datetime import datetime
+from datetime import datetime, timedelta
 from django.urls import reverse
+from django.http import JsonResponse
 
 # Home page view
 def home(request):
@@ -52,7 +53,29 @@ def adminlogin(request):
 
 # Admin dashboard view
 def admin_dashboard(request):
-    return render(request, 'html/admin_dashboard.html')
+    # Fetch counts for approved and pending athletes
+    approved_count = Register.objects.filter(Status=True).count()
+    pending_count = Register.objects.filter(Status=False).count()
+
+    # Example: Fetch historical data for the last 7 days
+    today = datetime.now()
+    dates = [(today - timedelta(days=i)).strftime('%Y-%m-%d') for i in range(7)]
+    approved_counts = []
+    pending_counts = []
+
+    for date in dates:
+        approved_counts.append(Register.objects.filter(Status=True, created_at__date=date).count())
+        pending_counts.append(Register.objects.filter(Status=False, created_at__date=date).count())
+
+    context = {
+        'approved_count': approved_count,
+        'pending_count': pending_count,
+        'dates': dates,
+        'approved_counts': approved_counts,
+        'pending_counts': pending_counts,
+    }
+
+    return render(request, 'html/admin_dashboard.html', context)
 
 # View for pending user registrations
 def pending(request):
@@ -74,6 +97,11 @@ def delete(request, id):
 def approved(request):
     approved_users = Register.objects.filter(Status=True)
     return render(request, 'html/approve.html', {'approved_users': approved_users})
+
+def approved_api(request):
+    approved_users = Register.objects.filter(Status=True)
+    users_list = list(approved_users.values()) 
+    return JsonResponse(users_list, safe=False)
 
 def delete_approved_user(request, id):
     data = get_object_or_404(Register, id=id)
@@ -518,7 +546,7 @@ def report(request, username=None):
                                               cardio_data.diastolic, cardio_data.ldlCholesterol, cardio_data.hdlCholesterol)
 
             fitness = fitness_score(int(cardio_data.vo2_max), int(cardio_data.recovery_time), int(cardio_data.hrv))
-            cardiovascular_risk = cardiovascular_risk_score(cardio_data.ldlCholesterol,
+            cardisovascular_risk = cardiovascular_risk_score(cardio_data.ldlCholesterol,
                                                             cardio_data.hdlCholesterol, cardio_data.fastingBloodSugar)
         else:
             # If no cardio data, set default or handle appropriately
@@ -555,3 +583,4 @@ def training_plan(request):
 
 def tips(request):
     return render(request,'html/Tips_resources.html')
+
